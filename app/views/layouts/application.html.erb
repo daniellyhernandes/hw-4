@@ -9,15 +9,27 @@
     <link rel="stylesheet" href="/stylesheets/application.css">
   </head>
 
-  <body>
-    <div>
-      <%= flash["notice"] %>
-    </div>
-    <div>
-      <a href="/">Home</a>
-      <a href="/logout">Logout</a>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
+  <body class="pt-4">
+    <div class="container">
+      <div class="row justify-content-end mb-2">
+        <div class="col">
+          <%= flash["notice"] %>
+        </div>
+        <div class="col-3 text-end">
+          <!-- If current user is logged (@current_user means @current_user != nil):--> 
+          <% if @current_user %>
+            <!-- Show the buttons "Home" and "Logout" + name of the user -->
+            <%= "Logged in as: " + @current_user["username"] %>
+            <a href="/places" class="btn btn-default">Home</a> |
+            <a href="/logout" class="btn btn-default">Logout</a>
+          <!-- If current user is not logged, I want him to see just the buttons "Login" and "SignUp":-->
+          <% else %>
+            <a href="/login" class="btn btn-default">Login</a> |
+            <a href="/users/new" class="btn btn-default">Sign Up</a>
+          <% end %>
+    
+        </div>
+      </div>
     </div>
 
     <%= yield %>

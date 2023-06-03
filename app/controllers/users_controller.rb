@@ -4,12 +4,21 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user["first_name"] = params["user"]["first_name"]
-    @user["last_name"] = params["user"]["last_name"]
-    @user["email"] = params["user"]["email"]
-    @user["password"] = params["user"]["password"]
-    @user.save
-    redirect_to "/"
+    #check if the user exists
+    @user = User.find_by({"email" => params["user"]["email"]})
+    # case true, send a message and redirect to login page
+    if @user 
+      flash["notice"] = "This email already exists"
+      redirect_to "/login"
+    # case false, create a signup for the user
+    else
+      @user = User.new
+      @user["username"] = params["user"]["username"]
+      @user["email"] = params["user"]["email"]
+      @user["password"] = BCrypt::Password.create(params["user"]["password"])
+      @user.save
+      session["user_id"] = @user["id"]
+      redirect_to "/places"
+    end
   end
 end
