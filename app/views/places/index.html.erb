@@ -1,11 +1,17 @@
-<h1>Places</h1>
-
-<ul>
-  <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
-  <% end %>
-</ul>
+<h4 style="font-family:'Comic Sans MS'" >Places </h4>
 
 <p>
-  <a href="/places/new">New place</a>
+<p>
+  <a href="/places/new" class="btn btn-outline-dark" >New place</a>
 </p>
+</p>
+
+<ul>
+  <div class="row">
+  <div class="col-md-3 col-sm-6">
+    <% for place in @places %>
+      <li><a style="font-family:'Comic Sans MS'" href="/places/<%= place["id"] %>"  ><%= place["name"] %></a></li>
+    <% end %>
+  
+</ul>
+
