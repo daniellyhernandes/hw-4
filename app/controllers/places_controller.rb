@@ -1,7 +1,12 @@
 class PlacesController < ApplicationController
 
   def index
-    @places = Place.all
+    #If user is logged in, allow to create the post + send the place_id to the front
+    if @current_user
+      @places = Place.all
+    else
+      redirect_to "/login"  
+    end
   end
 
   def show
