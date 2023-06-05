@@ -1,15 +1,17 @@
+<div class="container">
+
 <h4 style="font-family:'Comic Sans MS'"> New User Account:</h4>
 
 <%= form_with :model => @user do |form| %>
-  <div class="mb-3">
+  <div class="col-4 mb-3">
     <%= form.label "username:", :class => "form-label" %>
     <%= form.text_field "username", :class => "form-control" %>
    </div>
-  <div class="mb-3">
+  <div class="col-4 mb-3">
     <%= form.label "email:", :class => "form-label" %>
     <%= form.text_field "email", :class => "form-control" %>
    </div>
-  <div class="mb-3">
+  <div class="col-4 mb-3">
     <%= form.label "password:", :class => "form-label" %>
     <%= form.password_field "password", :class => "form-control" %>
    </div>
@@ -17,3 +19,5 @@
     <%= form.submit "Sign up", :class => "btn btn-outline-info"  %>
   </p>
 <% end %>
+
+ </div>
