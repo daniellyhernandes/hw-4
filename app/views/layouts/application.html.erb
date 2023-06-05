@@ -12,7 +12,7 @@
   </head>
 
   <body class="pt-4">
-    <div class="container text-center">
+    <div class="container text-center ml-0">
       <div class="row justify-content-start mb-2">
         <div class="col">
           
@@ -20,15 +20,15 @@
           
         </div>
       </div>
-      <div class="row justify-content-between mb-2">
-        <div class="col-3 text-start">
+      <div class="row justify-content-between mb-2 pr-0 mr-0">
+        <div class="col-6 text-start">
           <!-- If current user is logged (@current_user means @current_user != nil):--> 
           <% if @current_user %>
             <!-- Show the buttons "Home" and "Logout" + name of the user -->
                 <a class = "btn btn-outline-info" href="/places" >Home</a> 
           <% end %>
         </div>
-        <div class="col-5 text-end">
+        <div class="col-6 text-end">
           <% if @current_user %>
             <%= "Logged in as: " + @current_user["username"] %>
             <div class="vr"></div>

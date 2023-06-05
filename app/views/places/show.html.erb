@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1 style="font-family:'Comic Sans MS'"><%= @place["name"] %></h1>
 
 <p>
@@ -9,16 +11,21 @@
 
 
   <div class="row">
-    <div class="col-md-3 col-sm-6">
-      <% for post in @posts %>
+  <% for post in @posts %>
+    <div class="col-md-4 col-sm-6">
+      
       <h3 class="text-primary"> <%= post["title"] %> </h3>
       <h5><%= post["posted_on"] %></h5>
         <% if post.uploaded_image.attached? %>
           <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
           <p><%= post["description"] %></p>
         <% end %>
+      
     </div>
+    <% end %>
   </div>
  
 
-<% end %>
+
+
+ </div>

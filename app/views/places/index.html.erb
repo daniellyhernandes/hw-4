@@ -1,3 +1,5 @@
+<div class="container">
+
 <h4 style="font-family:'Comic Sans MS'" >Places </h4>
 
 <p>
@@ -8,10 +10,13 @@
 
 <ul>
   <div class="row">
-  <div class="col-md-3 col-sm-6">
-    <% for place in @places %>
-      <li><a style="font-family:'Comic Sans MS'" href="/places/<%= place["id"] %>"  ><%= place["name"] %></a></li>
-    <% end %>
-  
+    <div class="col-md-3 col-sm-6">
+      <% for place in @places %>
+        <li><a style="font-family:'Comic Sans MS'" href="/places/<%= place["id"] %>"  ><%= place["name"] %></a></li>
+      <% end %>
+    </div>
+  </div>
 </ul>
+
+ </div>
 
